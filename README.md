@@ -17,26 +17,37 @@ distance between all pair of data objects belonging to different clusters.
 represented by the distance between the center of the clusters.
 In our case, we performed HAC using Single Link (MIN method).
 The algorithm which we implemented is as follows:
+
 ● Assigned each gene id to a separate cluster.
+
 ● Initialized a distance matrix which stored all pair-wise distances between clusters
 using Single Link distance metric.
+
 ● At each step combining two clusters that contain the closest pair of elements not yet
 belonging to the same cluster as each other.
+
 ● The distance between the two clusters is determined by a single element pair, namely
 those two elements( one in each cluster) that are closest to each other. The shortest of
 these links that remains at any step causes the fusion of the two clusters whose
 elements are involved.
+
 ● Calculated the distance values using Euclidean distance.
+
 ● Looked for the pair of clusters with the shortest distance.
+
 ● Removed the pair from the matrix and merged them.
+
 ● Evaluated all distances from this new cluster to all other clusters, and updated the
 matrix.
+
 ● Repeated until desired number of clusters are formed..
+
 Pros:
 1. It doesn’t require the number of clusters to be predefined.
 2. It is flexible. It is not just limited to Euclidean distances (several other distance metrics
 can be used) and numerical data.
 3. Gives better understanding of the clustered data as compared to Kmeans and DBSCAN.
+
 Cons:
 1. The use of different distance metrics used for measuring distances can lead to different
 final results. It needs to be performed multiple times and the results need to be compared
